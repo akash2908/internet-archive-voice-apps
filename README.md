@@ -16,11 +16,15 @@ See the developer guide and release notes at https://developers.google.com/actio
 #### Run Local Server
 Run server local with colorful logs
 1. `npm install -g firebase-tools`
+    If you haven't used firebase-tools on your computer before, then you will have to login
+   `firebase login`
 2. `touch functions/.runtimeconfig.json` and add fake keys (temporary workaround) refer [this](https://github.com/internetarchive/internet-archive-voice-apps/issues/434#issuecomment-453114249)
-2. `firebase init` (remove .firebaserc first)
-3. `firebase use --add` (and choose your own firebase project)
-4. `cd functions` and `npm install`
-4. `DEBUG=ia:* npm start` 
+3. `firebase init` (remove .firebaserc first)
+    This command will guide you through the process which will associate your Firebasse Function with your Google Cloud       
+    Project which gets created when you create the 'Actions on Google' project in Part 1 of the deployment.
+4. `firebase use --add` (and choose your own firebase project)
+5. `cd functions` and `npm install`
+6. `DEBUG=ia:* npm start`
 #### Expose local server
 To expose server to google assistant use [ngrok](https://ngrok.com/)
 its free plan should be enough.
@@ -29,6 +33,11 @@ To publish 5000 port use:
 
 ```bash
 ngrok http 5000
+```
+If this dosen't work for you then try using:
+
+```bash
+./ngrok http 5000
 ```
 
 you should find url `https://<id>.ngrok.io/`.
